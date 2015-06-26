@@ -9,3 +9,6 @@
 #   What's your favorite number?
 #   42
 #   That's ok, I guess, but isn't 43 just a bit better?
+puts "What's your favorite number?"
+fav_plus = gets.chomp.to_i + 1
+puts "That's ok, I guess, but isn't #{fav_plus} just a bit better?"
