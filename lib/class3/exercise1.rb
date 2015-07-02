@@ -16,3 +16,21 @@
 #   Go to the store and buy some more, 3 bottles of beer on the wall!
 #
 # TIP: I expect you to use a loop.
+
+bottles = 3
+while bottles > 0
+  plural = "bottles"
+  single = "bottles"
+  less = bottles - 1
+  single = "bottle" if bottles == 2
+  if bottles == 1
+    less = 'no more'
+    plural = "bottle"
+  end
+  puts "#{bottles} #{plural} of beer on the wall, #{bottles} #{plural} of beer!
+Take one down, pass it around, #{less} #{single} of beer on the wall!"
+  bottles -= 1
+end
+
+puts 'No more bottles of beer on the wall, no more bottles of beer!
+Go to the store and buy some more, 3 bottles of beer on the wall!'
