@@ -33,7 +33,17 @@
 # TIP #2: Use `return` to preemptively exit the `ask` method.
 
 def ask(question)
-  question # change me
+  while true
+    puts question
+    response = gets.chomp
+    if response == 'y'
+    return 'We can be friends!'
+    elsif response == 'n'
+      return 'Get out of my sight!'
+    else
+      puts "Try again"
+    end
+  end
 end
 
 puts ask('Do you like eating tacos? (y or n)')
