@@ -37,14 +37,13 @@
 #     ['cat', 'bird'].sort  #=> ['bird', 'cat']
 
 list_of_words = []
-current_word = "placeHolder"
-puts "Type some words to be sorted alphabetically:"
-while true
-  current_word = gets
-  break if current_word == "\n"
-  list_of_words.push(current_word.chomp)
+puts 'Type some words to be sorted alphabetically:'
+loop do
+  current_word = gets.chomp
+  break if current_word == ''
+  list_of_words.push(current_word)
 end
 sorted_words = list_of_words.sort
 
-puts "Sweet! Here they are in alphabetical order:"
+puts 'Sweet! Here they are in alphabetical order:'
 puts sorted_words

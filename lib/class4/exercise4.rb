@@ -27,15 +27,16 @@
 # TIP #3: You only need to change the `old_school_roman_numeral` method.
 
 # rubocop:disable MethodLength
+# rubocop:disable MethodLength
 def old_school_roman_numeral(num)
-    mS = num / 1000
-    dS = (num % 1000) / 500
-    cS = (num % 500) / 100
-    lS = (num % 100) / 50
-    xS = (num % 50) / 10
-    vS = (num % 10) / 5
-    iS = (num % 5)
-    return "M" * mS + "D" * dS + "C" * cS + "L" * lS + "X" * xS + "V" * vS + "I" * iS
+  m = num / 1000
+  d = (num % 1000) / 500
+  c = (num % 500) / 100
+  l = (num % 100) / 50
+  x = (num % 50) / 10
+  v = (num % 10) / 5
+  i = (num % 5)
+  'M' * m + 'D' * d + 'C' * c + 'L' * l + 'X' * x + 'V' * v + 'I' * i
 end
 
 input = ARGV[0].to_i

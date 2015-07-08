@@ -33,16 +33,12 @@
 # TIP #2: Use `return` to preemptively exit the `ask` method.
 
 def ask(question)
-  while true
+  loop do
     puts question
     response = gets.chomp
-    if response == 'y'
-    return 'We can be friends!'
-    elsif response == 'n'
-      return 'Get out of my sight!'
-    else
-      puts "Try again"
-    end
+    return 'We can be friends!' if response == 'y'
+    return 'Get out of my sight!' if response == 'n'
+    puts 'Try again'
   end
 end
 
