@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+# !/usr/bin/env ruby
 #
 # 5 points
 #
@@ -32,7 +32,11 @@
 require 'yaml'
 
 def records
-  ['change me']
+  ['Incentivized methodologies',
+   'Seemless innovation',
+   'Corporate synergy',
+   'Scalable globalization',
+   'Monetized assets']
 end
 
 puts records.to_yaml
