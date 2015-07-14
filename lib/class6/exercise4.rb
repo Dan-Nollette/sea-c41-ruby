@@ -32,15 +32,18 @@
 require 'yaml'
 
 def database
-  '/replace/me'
+  File.absolute_path(File.dirname(__FILE__)) + '/database.yml'
 end
 
 def load
-  { fix: 'me' }
+  a_beatle = File.read database
+  YAML.load a_beatle
 end
 
 def display(pairs)
-  pairs # fix me
+  pairs.each do |key, val|
+    puts "#{key.inspect} => #{val.inspect}"
+  end
 end
 
 person = load
