@@ -53,7 +53,7 @@ end
 
 class String
   def indent(amount = 2)
-    amount # replace me
+    self.rjust(amount + self.size)
   end
 end
 
@@ -73,3 +73,5 @@ class Array
     # replace me
   end
 end
+
+puts "a".indent
