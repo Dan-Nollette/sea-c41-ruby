@@ -47,31 +47,53 @@
 
 class Integer
   def hours_in_seconds
-    # replace me
+    self * 3600
   end
 end
 
 class String
   def indent(amount = 2)
-    self.rjust(amount + self.size)
+    rjust(amount + size)
   end
 end
 
 class Integer
   # rubocop:disable MethodLength
   def to_roman
-    # replace me
+    roman_hash = {
+      1000 => 'M',
+      900 => 'CM',
+      500 => 'D',
+      400 => 'CD',
+      100 => 'C',
+      90 => 'XC',
+      50 => 'L',
+      40 => 'XL',
+      10 => 'X',
+      9 => 'IX',
+      5 => 'V',
+      4 => 'IV',
+      1 => 'I'
+    }
+    working_num = self
+    # This runs with inject, but rubocop is telling me its not the most
+    # preferable option.
+    roman_hash.keys.inject('') do |accumulate, divisor|
+      (working_num / divisor).times do
+        accumulate += roman_hash[divisor]
+      end
+      working_num = working_num % divisor
+      accumulate
+    end
   end
 end
 
 class Array
   def second
-    # replace me
+    self[1]
   end
 
   def third
-    # replace me
+    self[2]
   end
 end
-
-puts "a".indent
