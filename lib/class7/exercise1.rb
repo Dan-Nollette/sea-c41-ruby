@@ -76,6 +76,7 @@ class Integer
       1 => 'I'
     }
     working_num = self
+=begin
     # This runs with inject, but rubocop is telling me its not the most
     # preferable option.
     roman_hash.keys.inject('') do |accumulate, divisor|
@@ -85,6 +86,26 @@ class Integer
       working_num = working_num % divisor
       accumulate
     end
+=end
+
+    # This should be simpler using the each_with_object method
+    # NOT WORKING. will address later, clearly I need more work on each_with_object
+=begin    roman_hash.keys.each_with_object('') do |divisor, accumulate|
+      (working_num / divisor).times do
+        accumulate += roman_hash[divisor]
+      end
+      working_num = working_num % divisor
+    end
+=end
+
+    accumulate = ''
+    roman_hash.keys.each() do |divisor|
+      (working_num / divisor).times do
+        accumulate += roman_hash[divisor]
+      end
+    working_num = working_num % divisor
+    end
+    accumulate
   end
 end
 
