@@ -88,17 +88,19 @@ class Integer
     end
 =end
 
-    # This should be simpler using the each_with_object method
-    # NOT WORKING. will address later, clearly I need more work on each_with_object
-=begin    roman_hash.keys.each_with_object('') do |divisor, accumulate|
+    # This seems to finally work. I think I switched from using += to <<,
+    # but I don't know how that helped.
+    var = roman_hash.keys.each_with_object('') do |divisor, accumulate|
       (working_num / divisor).times do
-        accumulate += roman_hash[divisor]
+        accumulate << roman_hash[divisor]
       end
       working_num = working_num % divisor
     end
-=end
 
-    accumulate = ''
+
+
+
+=begin    accumulate = ''
     roman_hash.keys.each() do |divisor|
       (working_num / divisor).times do
         accumulate += roman_hash[divisor]
@@ -106,8 +108,10 @@ class Integer
     working_num = working_num % divisor
     end
     accumulate
+=end
   end
 end
+
 
 class Array
   def second
