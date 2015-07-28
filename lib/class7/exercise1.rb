@@ -76,7 +76,16 @@ class Integer
       1 => 'I'
     }
     working_num = self
-=begin
+    # VERSION .reduce
+    roman_hash.keys.reduce('') do |accumulate, divisor|
+      (working_num / divisor).times do
+        working_num -= divisor
+        accumulate << roman_hash[divisor]
+      end
+      accumulate
+    end
+
+=begin VERSION .inject
     # This runs with inject, but rubocop is telling me its not the most
     # preferable option.
     roman_hash.keys.inject('') do |accumulate, divisor|
@@ -88,19 +97,18 @@ class Integer
     end
 =end
 
-    # This seems to finally work. I think I switched from using += to <<,
-    # but I don't know how that helped.
-    var = roman_hash.keys.each_with_object('') do |divisor, accumulate|
+=begin VERSION .each_with_object
+    # This seems to finally work. switching from '+=' to '<<' made it work.
+    # I still need to figure out why.
+    roman_hash.keys.each_with_object('') do |divisor, accumulate|
       (working_num / divisor).times do
         accumulate << roman_hash[divisor]
       end
-      working_num = working_num % divisor
+      working_num %= divisor
     end
 
-
-
-
-=begin    accumulate = ''
+=begin  VERSION .each
+    accumulate = ''
     roman_hash.keys.each() do |divisor|
       (working_num / divisor).times do
         accumulate += roman_hash[divisor]
